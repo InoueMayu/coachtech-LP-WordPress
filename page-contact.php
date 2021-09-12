@@ -13,7 +13,8 @@
 <div class="contact container">
 <img src="<?php echo get_template_directory_uri(); ?>/img/firstview.jpg" alt="">
 <form class="" action="">
-  <?php echo do_shortcode( '[contact-form-7 id="27" title="お問い合わせ"]' ); ?>  
+    <?php echo do_shortcode( '[contact-form-7 id="27" title="お問い合わせ"]' ); ?> 
+    <p class="name"></p>
 </form>
 
 </div>

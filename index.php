@@ -136,7 +136,7 @@
           </div>
 
         </div>
-        <a href="" class="blog__link text-decoration-none">一覧ページへ</a>
+        <a href="<?php echo home_url('/bloglist'); ?>" class="blog__link text-decoration-none">一覧ページへ</a>
       </div>
     </div>
 
@@ -173,10 +173,10 @@
 
     <div id="recruit">
       <div class="recruit_flex__item">
-        <a href="" class="recruit__item recruit__item--first">
+        <a href="<?php echo home_url('/recruit'); ?>" class="recruit__item recruit__item--first">
           <h2 class="recruit__item-ttl">採用情報</h2>
         </a>
-        <a href="" class="recruit__item recruit__item--second">
+        <a href="<?php echo home_url('/interview'); ?>" class="recruit__item recruit__item--second">
           <h2 class="recruit__item-ttl">社員インタビュー</h2>
         </a>
       </div>
@@ -184,7 +184,7 @@
 
     <div id="contact">
       <h2 class="contact__ttl">株式会社estraへのお問い合わせはこちらから</h2>
-      <a href="" class="contact__btn text-decoration-none">お問い合わせ</a>
+      <a href="<?php echo home_url('/contact'); ?>" class="contact__btn text-decoration-none">お問い合わせ</a>
     </div>
   </main>
 
