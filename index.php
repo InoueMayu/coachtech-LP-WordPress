@@ -28,42 +28,28 @@
       <p class="common__sub-ttl">News</p>
       <h2 class="common__ttl">新着情報</h2>
       <ul class="news__list">
-        <li>
-          <a href="" class="news__list-link text-decoration-none">
-            <span class="news__list-data">2021/01/01</span>
-            <span class="news__list-cat">ニュース</span>
-            <span class="news__list-detail">COACHTECHのサービスが開始されました。</span>
-          </a>
-        </li>
-        <li>
-          <a href="" class="news__list-link text-decoration-none">
-            <span class="news__list-data">2021/01/01</span>
-            <span class="news__list-cat">ニュース</span>
-            <span class="news__list-detail">COACHTECHのサービスが開始されました。</span>
-          </a>
-        </li>
-        <li>
-          <a href="" class="news__list-link text-decoration-none">
-            <span class="news__list-data">2021/01/01</span>
-            <span class="news__list-cat">ニュース</span>
-            <span class="news__list-detail">COACHTECHのサービスが開始されました。</span>
-          </a>
-        </li>
-        <li>
-          <a href="" class="news__list-link text-decoration-none">
-            <span class="news__list-data">2021/01/01</span>
-            <span class="news__list-cat">ニュース</span>
-            <span class="news__list-detail">COACHTECHのサービスが開始されました。</span>
-          </a>
-        </li>
-        <li>
-          <a href="" class="news__list-link text-decoration-none">
-            <span class="news__list-data">2021/01/01</span>
-            <span class="news__list-cat">ニュース</span>
-            <span class="news__list-detail">COACHTECHのサービスが開始されました。</span>
-          </a>
-        </li>
 
+      <?php
+      $news_query = new WP_Query(
+        array(
+          'post_type' => 'news',
+          'posts_per_page' => 5
+        )
+      );
+      ?>
+      <?php if ( $news_query->have_posts() ) : ?>
+	    <?php while ( $news_query->have_posts() ) : ?>
+		  <?php $news_query->the_post(); ?>
+        <li>
+          <a href="" class="news__list-link text-decoration-none">
+            <span class="news__list-data"><?php echo get_the_date('Y/m/d'); ?></span>
+            <span class="news__list-cat">ニュース</span>
+            <span class="news__list-detail"><?php the_title(); ?></span>
+          </a>
+        </li>
+        <?php endwhile; ?>
+        <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
       </ul>
     </div>
 
