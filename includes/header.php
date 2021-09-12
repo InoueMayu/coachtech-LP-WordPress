@@ -1,10 +1,10 @@
 <?php wp_body_open(); ?>
 
-<header class="header flex__item sticky-top">
+<header class="header header_flex__item sticky-top">
     <a href="#" class="header__logo">
       <img src="<?php echo get_template_directory_uri(); ?>/img/estra_logo.png" alt="">
     </a>
-    <nav class="navbar navbar-expand-md  navbar-light bg-transparent">
+    <nav class="navbar navbar-expand-md navbar-light bg-white">
       <div class="container-fluid">
         <a class="navbar-brand" href="#news">News</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

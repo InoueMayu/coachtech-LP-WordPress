@@ -17,10 +17,10 @@ body {
   line-height: 1.7;
 }
 
-.flex__item {
+/* .flex__item {
   display: flex;
   justify-content: space-between;
-}
+} */
 
 .container {
   max-width: 960px;
@@ -56,12 +56,23 @@ body {
   margin-left: 40px;
 }
 
+.header_flex__item {
+  display: flex;
+  justify-content: space-between;
+}
+
+
 .header__nav {
   margin-right: 40px;
 }
 
 .header__nav-list li {
   margin-right: 25px;
+}
+
+.header_flex__item {
+  display: flex;
+  justify-content: space-between;
 }
 
 .header__nav-list- li:last-child {
@@ -72,6 +83,7 @@ body {
   height: 70px;
   display: inline-block;
 }
+
 
 
 /*--------------------- firstview--------------------- */
@@ -152,6 +164,11 @@ body {
 #about .common__sub-ttl,
 #about .common__ttl {
   text-align: center;
+}
+
+.about_flex__item {
+  display: flex;
+  justify-content: space-around;
 }
 
 .about__item {
@@ -269,6 +286,15 @@ body {
   margin-top: -7px;
 }
 
+.blog_flex__item {
+  display: flex;
+  padding: 0;
+}
+
+.tag {
+  margin-left: auto;
+}
+
 .blog-wrap__item-content-ttl {
   font-size: 16px;
 }
@@ -348,6 +374,11 @@ body {
   transition: 0.4s;
 }
 
+.recruit_flex__item {
+  display: flex;
+  justify-content: space-between;
+}
+
 .recruit__item:hover {
   filter: grayscale(1);
   transition: 0.4s;
@@ -387,6 +418,7 @@ body {
 
 .contact__ttl::before {
   position: absolute;
+  vertical-align: middle;
   bottom: 20px;
   left: 50%;
   height: 40px;
@@ -412,6 +444,8 @@ body {
 }
 
 .contact__btn::after {
+  display: inline-block;
+  vertical-align: middle;
   position: absolute;
   left: 30px;
   top: 50%;
@@ -426,6 +460,7 @@ body {
   -o-transform: translate(0, -50%);
 }
 
+
 .footer {
   text-align: center;
   height: 60px;
@@ -438,6 +473,27 @@ body {
 
 
 @media screen and (max-width: 768px) {
+
+  .about_flex__item{
+    display: block;
+  }
+
+  .about__item-img {
+    width: 100%;
+  }
+
+  .about__item-txt {
+    width: 100%;
+  }
+
+  .service-wrap {
+    display: block;
+  }
+
+  .service-wrap__item--first {
+    padding: 30px 20px;
+  }
+
 
   .navbar {
     position: fixed;
@@ -494,16 +550,16 @@ body {
     margin-top: 50px;
   }
 
-  .service-wrap__item-content-ttl {
-    font-size: 12px;
+  .recruit_flex__item {
+    display: block;
   }
 
-  .service-wrap__item-content-ttl-p {
-    font-size: 8px;
+  .recruit__item--first {
+    width: 100%;
   }
 
-  .recruit__item-ttl {
-    font-size: 16px;
+  .recruit__item--second {
+    width: 100%;
   }
 
 }

@@ -57,7 +57,7 @@
       <div class="container">
         <p class="common__sub-ttl">About</p>
         <h2 class="common__ttl">Technology × Coaching</h2>
-        <div class="about__item flex__item">
+        <div class="about__item about_flex__item">
           <p class="about__item-txt mt-5"><span>株式会社estraはデジタル化が遅れている教育業界に最新のテクノロジーを導入することによって教育のDXを実現します。</span>独自のオペレーションとコーチングを融合した新しい教育の仕組みにより、一人ひとりに合わせた最適な教育を提供します。</p>
           <div class="about__item-img mt-5"><img src="<?php echo get_template_directory_uri(); ?>/img/about.jpg" alt=""></div>
         </div>
@@ -123,9 +123,9 @@
                     <h3 class="blog-wrap__item-content-ttl">
                       <?php the_title(); ?>
                     </h3>
-                    <ul class="flex__item">
+                    <ul class="blog_flex__item">
                       <li class="blog-wrap__item-content-tag"><?php the_time('Y/m/d'); ?></li>
-                      <li class="blog-wrap__item-content-tag">#<?php echo $tag_name; ?></li>
+                      <li class="blog-wrap__item-content-tag tag">#<?php echo $tag_name; ?></li>
                     </ul>
                   </div>
                 </a>
@@ -172,7 +172,7 @@
     </div>
 
     <div id="recruit">
-      <div class="flex__item">
+      <div class="recruit_flex__item">
         <a href="" class="recruit__item recruit__item--first">
           <h2 class="recruit__item-ttl">採用情報</h2>
         </a>
