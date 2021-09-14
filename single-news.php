@@ -6,7 +6,7 @@
 </head>
 
 <style>
-  .single-eyecatch > img {
+.single-eyecatch > img {
   height: 500px;
   object-fit: cover;
 }
@@ -55,6 +55,7 @@
 }
 </style>
 
+
 <body <?php body_class(); ?>>
 
   <?php get_template_part('includes/header'); ?>
@@ -62,14 +63,12 @@
   <?php if(have_posts()): ?>
   <?php while(have_posts()): the_post(); ?>
  
-
   <header class="masthead" id="single__header">
   <div class="eyecatch">
     <div class="single-eyecatch page-eyecatch">
     <?php 
-      $img = get_eyecatch_with_default(); 
-    ?>
-                
+      $img = get_eyecatch_with_default2(); 
+    ?>   
       <img src="<?php echo $img[0]; ?>" alt="">
       <div class="page-title">
         <p class=></p>
@@ -92,6 +91,7 @@
     </div>
   </div>
   </header>
+
 
   <hr>
 

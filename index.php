@@ -41,9 +41,9 @@
 	    <?php while ( $news_query->have_posts() ) : ?>
 		  <?php $news_query->the_post(); ?>
         <li>
-          <a href="" class="news__list-link text-decoration-none">
+          <a href="<?php the_permalink(); ?>" class="news__list-link text-decoration-none">
             <span class="news__list-data"><?php echo get_the_date('Y/m/d'); ?></span>
-            <span class="news__list-cat">ニュース</span>
+            <span class="news__list-cat"><?php echo esc_html(get_post_type_object(get_post_type())->label); ?></span>
             <span class="news__list-detail"><?php the_title(); ?></span>
           </a>
         </li>
@@ -51,6 +51,7 @@
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
       </ul>
+      <a href="<?php echo home_url('/news'); ?>" class="blog__link text-decoration-none">ニュース一覧はこちら</a>
     </div>
 
     <div id="about">
@@ -104,6 +105,7 @@
           <div class="row">
 
             <?php if (have_posts()) : ?>
+              <?php query_posts('posts_per_page=3'); ?>
               <?php while (have_posts()) : the_post(); ?>
                 <a href="<?php the_permalink(); ?>" class="blog-wrap__item text-decoration-none col-lg-4 mt-3">
 
@@ -115,6 +117,7 @@
 
                 $tag = get_the_tags();
                 $tag_name = $tag[0]->name;
+
                 ?>
                 
                   <img src="<?php echo $img[0]; ?>" alt="" class="blog-wrap__item-eyecatch">
@@ -136,7 +139,7 @@
           </div>
 
         </div>
-        <a href="<?php echo home_url('/bloglist'); ?>" class="blog__link text-decoration-none">一覧ページへ</a>
+        <a href="<?php echo home_url('/blog'); ?>" class="blog__link text-decoration-none">一覧ページへ</a>
       </div>
     </div>
 
