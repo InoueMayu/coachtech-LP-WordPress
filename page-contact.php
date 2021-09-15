@@ -55,6 +55,11 @@
   text-align: center;
 }
 
+@media screen and (max-width: 480px) {
+  .page-title__h1 {
+    font-size: 28px;
+  }
+}
 
 </style>
 

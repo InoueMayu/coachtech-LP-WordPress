@@ -625,36 +625,11 @@ textarea {
 }
 
 @media screen and (max-width: 480px) {
-  .service-wrap__item-content-ttl-p {
-    display: none;
+  .recruit__item-ttl {
+    font-size: 20px;
   }
 
-  .service-wrap__item img,
-  .service-wrap__item--first img {
-    width: 80px;
-  }
-
-  .service-wrap__item--first img {
-    margin-top: 70%;
-  }
-
-  .service-wrap__item--second {
-    padding: 40px;
-  }
-
-  .service-wrap__item--third {
-    padding: 40px;
-  }
-
-  .news__list-data {
-    font-size: 10px;
-  }
-
-  .news__list-cat {
-    font-size: 10px;
-  }
-
-  .news__list-detail {
-    font-size: 10px;
+  .contact__ttl {
+    font-size: 14px;
   }
 }
