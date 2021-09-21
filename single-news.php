@@ -7,14 +7,14 @@
 
 <style>
 .single-eyecatch > img {
-  height: 500px;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
 }
 
 .single-container {
   background: #fff;
   position: relative;
-  top: -90px;
+  top: -50px;
   padding: 50px;
   box-sizing: border-box;
   margin: 0 40px;
@@ -52,6 +52,30 @@
 .eyecatch {
   margin: 0 auto;
   padding: 0 20px 40px;
+}
+
+@media screen and (max-width: 480px) {
+.single-title {
+    font-size: 20px;
+  }
+
+.single-container {
+  background: #fff;
+  position: relative;
+  top: -50px;
+  left: -30px;
+  padding: 50px;
+  box-sizing: border-box;
+  margin: 0 40px;
+  
+}
+.tags-date{
+    font-size: 14px;
+  } 
+
+  .main-text {
+    line-height: 1.7;
+  } 
 }
 </style>
 

@@ -7,7 +7,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-  
+
   <?php get_template_part('includes/header'); ?>
 
   <main>
@@ -29,25 +29,25 @@
       <h2 class="common__ttl">新着情報</h2>
       <ul class="news__list">
 
-      <?php
-      $news_query = new WP_Query(
-        array(
-          'post_type' => 'news',
-          'posts_per_page' => 5
-        )
-      );
-      ?>
-      <?php if ( $news_query->have_posts() ) : ?>
-	    <?php while ( $news_query->have_posts() ) : ?>
-		  <?php $news_query->the_post(); ?>
-        <li>
-          <a href="<?php the_permalink(); ?>" class="news__list-link text-decoration-none">
-            <span class="news__list-data"><?php echo get_the_date('Y/m/d'); ?></span>
-            <span class="news__list-cat"><?php echo esc_html(get_post_type_object(get_post_type())->label); ?></span>
-            <span class="news__list-detail"><?php the_title(); ?></span>
-          </a>
-        </li>
-        <?php endwhile; ?>
+        <?php
+        $news_query = new WP_Query(
+          array(
+            'post_type' => 'news',
+            'posts_per_page' => 5
+          )
+        );
+        ?>
+        <?php if ($news_query->have_posts()) : ?>
+          <?php while ($news_query->have_posts()) : ?>
+            <?php $news_query->the_post(); ?>
+            <li>
+              <a href="<?php the_permalink(); ?>" class="news__list-link text-decoration-none">
+                <span class="news__list-data"><?php echo get_the_date('Y/m/d'); ?></span>
+                <span class="news__list-cat"><?php echo esc_html(get_post_type_object(get_post_type())->label); ?></span>
+                <span class="news__list-detail"><?php the_title(); ?></span>
+              </a>
+            </li>
+          <?php endwhile; ?>
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
       </ul>
@@ -101,6 +101,31 @@
         <p class="common__sub-ttl">Blog</p>
         <h2 class="common__ttl">ブログ</h2>
 
+    <div class="d-inline-flex container">
+      <div class="dropdown me-5 mt-2">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            カテゴリーを選択してください
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a class="dropdown-item" href="<?php echo get_category_link( 3 ); ?>">Blog</a></li>
+          <li><a class="dropdown-item" href="<?php echo get_category_link( 10 ); ?>">お知らせ</a></li>
+          <li><a class="dropdown-item" href="<?php echo get_category_link( 11 ); ?>">学習</a></li>
+        </ul>
+      </div>
+      <div class="dropdown mt-2">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            タグを選択してください
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a class="dropdown-item" href="<?php echo get_tag_link( 2 ); ?>">COACHTECH</a></li>
+          <li><a class="dropdown-item" href="<?php echo get_tag_link( 14 ); ?>">Coaching</a></li>
+          <li><a class="dropdown-item" href="<?php echo get_tag_link( 7 ); ?>">Computer</a></li>
+          <li><a class="dropdown-item" href="<?php echo get_tag_link( 13 ); ?>">Products</a></li>
+          <li><a class="dropdown-item" href="<?php echo get_tag_link( 6 ); ?>">Programming</a></li>
+          <li><a class="dropdown-item" href="<?php echo get_tag_link( 8 ); ?>">Technology</a></li>
+        </ul>
+      </div>
+    </div>
         <div class="flex__item blog-wrap container">
           <div class="row">
 
@@ -109,17 +134,17 @@
               <?php while (have_posts()) : the_post(); ?>
                 <a href="<?php the_permalink(); ?>" class="blog-wrap__item text-decoration-none col-lg-4 mt-3">
 
-                <?php 
-                $img = get_eyecatch_with_default(); 
+                  <?php
+                  $img = get_eyecatch_with_default();
 
-                $category = get_the_category();
-                $cat_name = $category[0]->cat_name;
+                  $category = get_the_category();
+                  $cat_name = $category[0]->cat_name;
 
-                $tag = get_the_tags();
-                $tag_name = $tag[0]->name;
+                  $tag = get_the_tags();
+                  $tag_name = $tag[0]->name;
 
-                ?>
-                
+                  ?>
+
                   <img src="<?php echo $img[0]; ?>" alt="" class="blog-wrap__item-eyecatch">
                   <span class="blog-wrap__item-cat"><?php echo $cat_name; ?></span>
                   <div class="blog-wrap__item-content">
@@ -128,7 +153,12 @@
                     </h3>
                     <ul class="blog_flex__item">
                       <li class="blog-wrap__item-content-tag"><?php the_time('Y/m/d'); ?></li>
-                      <li class="blog-wrap__item-content-tag tag">#<?php echo $tag_name; ?></li>
+                      <li class="blog-wrap__item-content-tag tag"><?php
+                          $tags = get_the_tags();
+                          foreach( $tags as $tag) { 
+                          echo "#".$tag->name."<br>";
+                        }
+                      ?></li>
                     </ul>
                   </div>
                 </a>
@@ -192,7 +222,7 @@
   </main>
 
   <?php get_template_part('includes/footer'); ?>
-  
+
 
   <?php get_footer(); ?>
 </body>

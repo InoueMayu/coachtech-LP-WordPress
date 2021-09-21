@@ -60,7 +60,6 @@
 }
 
 
-
 </style>
 
 <body <?php body_class(); ?>>
@@ -70,8 +69,8 @@
   <div class="single-eyecatch page-eyecatch">
     <img src="<?php echo get_template_directory_uri(); ?>/img/blog.jpg" alt="no-img" />
     <div class="page-title">
-      <h1 class="page-title__h1">BLOG</h1>
-      <p class="page-title__p">ブログ記事一覧</p>
+      <h1 class="page-title__h1">Article</h1>
+      <p class="page-title__p">記事一覧</p>
     </div>
   </div>
   <div class="flex__item blog-wrap container">
@@ -99,7 +98,12 @@
                     </h3>
                     <ul class="blog_flex__item">
                       <li class="blog-wrap__item-content-tag"><?php the_time('Y/m/d'); ?></li>
-                      <li class="blog-wrap__item-content-tag tag">#<?php echo $tag_name; ?></li>
+                      <li class="blog-wrap__item-content-tag tag"><?php
+                          $tags = get_the_tags();
+                          foreach( $tags as $tag) { 
+                          echo "#".$tag->name."<br>";
+                        }
+                      ?></li>
                     </ul>
                   </div>
                 </a>
@@ -108,8 +112,17 @@
               <p>記事が見つかりませんでした</p>
             <?php endif; ?>
           </div>
-            </div>
-
+          
+        </div>
+        <?php the_posts_pagination(
+          array(
+            'mid_size'      => 2, // 現在ページの左右に表示するページ番号の数
+            'prev_next'     => true, // 「前へ」「次へ」のリンクを表示する場合はtrue
+            'prev_text'     => __( '前へ'), // 「前へ」リンクのテキスト
+            'next_text'     => __( '次へ'), // 「次へ」リンクのテキスト
+            'type'          => 'list', // 戻り値の指定 (plain/list)
+          )
+        ); ?>
             <?php get_template_part('includes/footer'); ?>
   
         <?php get_footer(); ?>

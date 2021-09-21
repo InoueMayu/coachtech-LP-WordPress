@@ -22,7 +22,6 @@
   margin: 0 40px;
 }
 
-
 .page-eyecatch {
   position: relative;
 }
@@ -77,7 +76,7 @@
 
 <div class="contact">
   <form class="form" method="post">
-    <?php echo do_shortcode( '[contact-form-7 id="47" title="お問い合わせ"]' ); ?>
+  <?php echo do_shortcode( '[mwform_formkey key="58"]' ); ?>
   </form>
 </div>
 

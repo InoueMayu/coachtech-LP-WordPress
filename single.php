@@ -6,15 +6,15 @@
 </head>
 
 <style>
-  .single-eyecatch > img {
-  height: 500px;
-  object-fit: cover;
+.single-eyecatch > img {
+  width: 100%;
+  height: auto;
 }
 
 .single-container {
   background: #fff;
   position: relative;
-  top: -90px;
+  top: -50px;
   padding: 50px;
   box-sizing: border-box;
   margin: 0 40px;
@@ -53,6 +53,30 @@
   margin: 0 auto;
   padding: 0 20px 40px;
 }
+
+@media screen and (max-width: 480px) {
+.single-title {
+    font-size: 20px;
+  }
+
+.single-container {
+  background: #fff;
+  position: relative;
+  top: -50px;
+  left: -30px;
+  padding: 50px;
+  box-sizing: border-box;
+  margin: 0 40px;
+  
+}
+.tags-date{
+    font-size: 14px;
+  } 
+
+  .main-text {
+    line-height: 1.7;
+  } 
+}
 </style>
 
 <body <?php body_class(); ?>>
@@ -79,7 +103,7 @@
       <div class="single-header__contain">
         <div class="style__border">
           <h1 class="single-title">
-          <?php the_title(); ?>
+            <?php the_title(); ?>
           </h1>
           <div class="flex tags-date">
             <p class="single-date"><?php the_date(); ?></p>
