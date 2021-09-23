@@ -101,7 +101,7 @@
         <p class="common__sub-ttl">Blog</p>
         <h2 class="common__ttl">ブログ</h2>
 
-    <div class="d-inline-flex container">
+    <div>
       <div class="dropdown me-5 mt-2">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
             カテゴリーを選択してください
